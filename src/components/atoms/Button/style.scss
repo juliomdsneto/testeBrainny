@@ -1,0 +1,51 @@
+/* Button.scss */
+
+.btnDefault {
+	border-radius: 5px;
+	width: 160px;
+	height: 50px;
+	flex-shrink: 0;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: #330693;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.4s ease-in-out;
+
+}
+
+.primary {
+
+	background-color: #fff;
+
+	&:hover {
+		background-color: #8A53FF;
+		color: #fff;
+	}
+}
+
+.secondary {
+
+	background-color: #8A53FF;
+	color: #FFF;
+
+
+	&:hover {
+		background-color: #fff;
+		color: #8A53FF;
+	}
+}
+
+.tertiary {
+	background-color: transparent;
+	color: #fff;
+	border: 1px solid #fff;
+
+	&:hover {
+		background-color: #8A53FF;
+		border: none;
+	}
+}

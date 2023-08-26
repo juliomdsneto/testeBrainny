@@ -1,0 +1,51 @@
+.textDefault {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	/* Alinha os elementos em coluna */
+	align-items: flex-start;
+}
+
+
+.h2-styles {
+	color: #FFF;
+	font-family: Poppins;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 300;
+	line-height: normal;
+	letter-spacing: 3.96px;
+	text-transform: uppercase;
+	// ... outros estilos desejados para h2
+}
+
+// Defina os estilos para h1
+.h1-styles {
+	color: red;
+	font-size: 24px;
+	/* Tamanho de fonte padrão */
+	// ... outros estilos desejados para h1
+
+}
+
+// Defina os estilos para p
+.p-styles {
+	color: #FFF;
+	font-family: Poppins;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	// ... outros estilos desejados para p
+}
+
+
+.purple-text {
+	color: #8A53FF;
+	display: inline;
+}
+
+.white-text {
+	color: white;
+	/* Cor branca desejada */
+}

@@ -1,0 +1,27 @@
+@mixin mobile() {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+.imageDefault {
+	height: auto;
+	border-radius: 5px;
+
+	// Outros estilos gerais aqui
+}
+
+.variant-210 {
+	max-width: 210px;
+	margin-right: 70px;
+
+	@include mobile() {
+		margin-right: 0;
+		margin-bottom: 30px;
+		flex-direction: column;
+	}
+
+	// Outros estilos específicos para a variante aqui
+}
+
+// Adicione outras variantes conforme necessário

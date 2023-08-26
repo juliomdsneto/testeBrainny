@@ -1,0 +1,23 @@
+h1 {
+	font-family: 'Poppins', sans-serif;
+}
+
+
+.landing-page {
+	font-family: 'Poppins', sans-serif;
+	background-image: url('../../../images/bg_space.png');
+	background-size: cover;
+	background-position: center;
+
+
+	.section {
+		padding: 50px;
+		text-align: center;
+	}
+
+	.main-image {
+		float: right;
+		max-width: 50%;
+	}
+
+}
