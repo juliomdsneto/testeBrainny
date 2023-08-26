@@ -1,21 +1,21 @@
-@mixin mobile() {
-	@media (max-width: 768px) {
-		@content;
-	}
-}
+@import './../../../mixins';
 
 .imageDefault {
 	height: auto;
 	border-radius: 5px;
 
-	// Outros estilos gerais aqui
+	@include mobile {
+		max-width: 370px;
+	}
+
+
 }
 
 .variant-210 {
 	max-width: 210px;
 	margin-right: 70px;
 
-	@include mobile() {
+	@include mobile {
 		margin-right: 0;
 		margin-bottom: 30px;
 		flex-direction: column;

@@ -36,8 +36,13 @@ const LandingPage = ({ }) => {
 				<Carousel />
 			</section>
 
-			<section>
-				<Icon icons={socialMediaIcons} links={socialMediaLinks} />
+			<section className='contact'>
+				<div className='d-flex justify-content-center gap-5 pt-5 pb-5 container'>
+					<div>
+						<h4 className='contact-title'>@pontogo</h4>
+						<p className='contact-text'>se conectar com a gente</p></div>
+					<Icon className="icon-container" icons={socialMediaIcons} links={socialMediaLinks} />
+				</div>
 			</section>
 		</div>
 	);

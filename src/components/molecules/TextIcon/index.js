@@ -1,21 +1,15 @@
 import React from 'react';
-import './style.scss';
-import Text from '../../atoms/Text';
 import Icon from '../../atoms/Icon';
+import Text from '../../atoms/TextTags';
+import './style.scss';
 
-const TextIcon = ({ text, iconContent, iconAlt, iconLink }) => {
+const TextWithIcon = ({ text, iconSrc, iconAlt, iconLink }) => {
 	return (
 		<div className="text-with-icon">
-			<div className="text">
-				<Text tag="p" text={text} className="text-styles" />
-			</div>
-			<div className="icon">
-				<a href={iconLink}>
-					<Icon content={iconContent} alt={iconAlt} />
-				</a>
-			</div>
+			<Icon src={iconSrc} alt={iconAlt} link={iconLink} />
+			<Text text={text} />
 		</div>
 	);
 };
 
-export default TextIcon;
+export default TextWithIcon;

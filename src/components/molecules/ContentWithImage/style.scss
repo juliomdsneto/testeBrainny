@@ -1,3 +1,5 @@
+@import './../../../mixins';
+
 .content-with-image {
 	display: flex;
 	align-items: center;
@@ -7,23 +9,24 @@
 		flex-direction: column;
 	}
 
+	@include mobile {
+		flex-direction: column;
+	}
+
+
 }
 
 .content {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-
 	align-items: flex-start;
-
 }
 
 .text-container {
 	display: flex;
 	flex-direction: column;
-
 	align-items: flex-start;
-
 }
 
 .content-item {
@@ -32,7 +35,15 @@
 	color: #fff;
 	display: inline;
 	text-align: left;
+	font-family: Poppins;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
 
+	@include mobile {
+		font-size: 20px;
+	}
 }
 
 .h2-styles {
@@ -45,16 +56,15 @@
 	letter-spacing: 3.96px;
 	text-transform: uppercase;
 
+	@include mobile {
+		font-size: 16px;
+	}
 }
 
 
 .h1-styles {
-	color: red;
 	font-size: 24px;
-
-
 }
-
 
 .p-styles {
 	color: #FFF;
@@ -64,12 +74,23 @@
 	font-weight: 500;
 	line-height: normal;
 
+	@include mobile {
+		font-size: 12px;
+	}
 }
-
 
 .purple-text {
 	color: #8A53FF;
 	display: inline;
+	font-family: Poppins;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+
+	@include mobile {
+		font-size: 20px;
+	}
 }
 
 .white-text {

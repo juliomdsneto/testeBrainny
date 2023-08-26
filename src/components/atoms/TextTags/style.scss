@@ -1,3 +1,5 @@
+@import './../../../mixins';
+
 .textDefault {
 	flex: 1;
 	display: flex;
@@ -16,15 +18,15 @@
 	line-height: normal;
 	letter-spacing: 3.96px;
 	text-transform: uppercase;
-	// ... outros estilos desejados para h2
+
+
+
 }
 
 // Defina os estilos para h1
 .h1-styles {
 	color: red;
-	font-size: 24px;
-	/* Tamanho de fonte padrão */
-	// ... outros estilos desejados para h1
+
 
 }
 

@@ -6,7 +6,7 @@ import './style.scss';
 
 const Navbar = () => {
 	return (
-		<nav className="navbar pt-4 container">
+		<nav className="navbar pt-5 container">
 			<AnchorWithImage to="/">Home</AnchorWithImage> <br />
 			<div className="navbar-center d-flex">
 				<ul className="nav-links list-unstyled d-flex">
