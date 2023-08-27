@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from '../../atoms/Icon';
 import Image from '../../atoms/Image';
 import ContentWithImage from '../../molecules/ContentWithImage';
@@ -11,7 +10,7 @@ import spaceGuyImage from '../../../images/space_guy.png';
 import { contentHome, images, socialMediaIcons, socialMediaLinks } from './constants';
 
 
-const LandingPage = ({ }) => {
+const LandingPage = () => {
 
 	return (
 		<div className="landing-page">
@@ -31,6 +30,7 @@ const LandingPage = ({ }) => {
 					<Image images={images} variant="variant-210" />
 				</div>
 			</section>
+
 			<section>
 
 				<Carousel />

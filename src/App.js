@@ -1,7 +1,7 @@
-import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+import DashBoard from './pages/Dashboard';
 import Home from './pages/Home';
-import Login from './pages/Login'; // Importe a página de login
+import Login from './pages/Login';
 
 const Routes = () => {
     return (
@@ -15,6 +15,11 @@ const Routes = () => {
                 path="/login"
                 exact
                 render={(props) => <Login {...props} />}
+            />
+            <Route
+                path="/dashboard"
+                exact
+                render={(props) => <DashBoard {...props} />}
             />
         </Router>
     );
