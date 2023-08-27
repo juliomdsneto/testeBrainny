@@ -1,0 +1,127 @@
+@import './../../../mixins';
+
+.login-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: rgba(255, 255, 255, 0.70);
+	font-family: Poppins;
+	gap: 100px;
+	padding: 79px 0px;
+
+	@media (min-width: 768px) and (max-width: 1120px) {
+		flex-direction: column-reverse;
+		height: max-content;
+		gap: 25px;
+	}
+
+	@include mobile {
+		flex-direction: column;
+		flex-direction: column-reverse;
+		height: max-content;
+	}
+
+
+	.login-section,
+	.login-form-section {
+		background-color: #fff;
+		box-shadow: none;
+		gap: 10px;
+
+		@include mobile {
+			width: 100%;
+			padding: 0px 16px;
+		}
+	}
+
+	.login-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		h1 {
+			font-family: Poppins;
+			font-size: 40px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			color: #330693;
+
+			@include mobile {
+				font-size: 24px;
+			}
+		}
+
+		h2 {
+			text-align: center;
+			font-family: Poppins;
+			font-size: 25px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			color: #330693;
+			max-width: 381px;
+
+			@include mobile {
+				font-size: 22px;
+			}
+		}
+
+	}
+
+	.login-form-section {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		h3 {
+			font-family: Poppins;
+			font-size: 40px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			color: #330693;
+
+			@include mobile {
+				font-size: 24px;
+			}
+		}
+
+		input {
+			width: 100%;
+
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		a {
+			font-family: Poppins;
+			font-size: 15px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-decoration-line: underline;
+		}
+
+		.help {
+			font-family: Poppins;
+			font-size: 15px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			text-decoration-line: underline;
+			color: #330693;
+		}
+
+		.label-input {
+			font-family: Poppins;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			color: #20292E;
+		}
+	}
+}

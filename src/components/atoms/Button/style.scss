@@ -14,12 +14,6 @@
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.4s ease-in-out;
-
-	@include mobile {
-		max-width: 100px;
-		font-size: 12px;
-	}
-
 }
 
 .primary {
@@ -29,6 +23,11 @@
 	&:hover {
 		background-color: #8A53FF;
 		color: #fff;
+	}
+
+	@include mobile {
+		max-width: 100px;
+		font-size: 12px;
 	}
 }
 
@@ -42,6 +41,11 @@
 		background-color: #fff;
 		color: #8A53FF;
 	}
+
+	@include mobile {
+		max-width: 100px;
+		font-size: 12px;
+	}
 }
 
 .tertiary {
@@ -52,5 +56,33 @@
 	&:hover {
 		background-color: #8A53FF;
 		border: none;
+	}
+
+	@include mobile {
+		max-width: 100px;
+		font-size: 12px;
+	}
+}
+
+.loginBtn {
+	background-color: #330693;
+	color: #fff;
+	width: 400px;
+	margin-top: 30px;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.7);
+		color: #330693;
+		border: 1px solid #330693;
+	}
+
+	@media (min-width: 768px) and (max-width: 1120px) {
+		width: 100%;
+
+	}
+
+	@include mobile {
+		width: 100%;
+		margin-top: 15px;
 	}
 }
