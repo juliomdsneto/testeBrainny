@@ -1,3 +1,59 @@
-.custom-tag {
-	background-color: transparent !important;
+.card-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+
+	.custom-card {
+		width: 18rem;
+		padding: 1rem;
+		border-radius: 10px;
+		border: 1px solid #8A53FF;
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(2.5px);
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+
+		&.active {
+			opacity: 1;
+		}
+
+		&.semi-active {
+			opacity: 0.5;
+		}
+
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+
+		.card-title {
+			color: white;
+		}
+
+		.card-text {
+			color: white;
+		}
+
+	}
+
+	.controls {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0 1rem;
+
+		button {
+			padding: 0.5rem 1rem;
+			border-radius: 5px;
+			background-color: var(--secundary-color, #8A53FF);
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+	}
 }
