@@ -3,8 +3,138 @@
 	display: flex;
 }
 
+.btnModal {
+	border-radius: 5px;
+	width: 200px;
+	height: 50px;
+	background-color: #330693;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: #fff;
+	border: none;
+	transition: background-color 0.3s;
+	/* Adicione uma transição suave para o background */
+
+	&:hover {
+		background-color: #fff;
+		border: 1px solid #330693;
+		color: #330693;
+	}
+}
+
+.btn:first-child:active {
+	background-color: #330693;
+	box-shadow: 0 0 0 0.25rem rgba(19, 9, 98, 0.5);
+}
+
+.btn-danger:active {
+	background-color: yellow;
+}
+
+.btn-danger:focus {
+	background-color: #330693;
+	box-shadow: 0 0 0 0.25rem rgba(19, 9, 98, 0.5);
+}
+
+.btn-danger:active:focus {
+	box-shadow: none !important;
+
+}
+
 .sideMenu {
 	width: 180px;
 	border: 1px solid rgba(0, 0, 0, 0.00);
 	background: #FFF;
+}
+
+.modal.fade.show {
+	display: flex !important;
+	align-items: center;
+}
+
+
+.modal-content {
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid rgba(32, 41, 46, 0.30);
+	padding: 60px;
+	display: flex;
+	align-items: center;
+
+
+}
+
+.modal-header {
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-bottom: none;
+	color: #20292E;
+}
+
+.modal-title {
+	font-family: Poppins;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	border-bottom: none;
+	color: #20292E;
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+
+
+.modal-footer {
+	flex-direction: column;
+	border-top: none;
+
+}
+
+.modal-footer .btn {
+	margin-right: 10px;
+}
+
+
+.modal-header .close {
+	font-size: 24px;
+	font-weight: bold;
+	color: #000;
+}
+
+.btn-close {
+	font-size: 16px;
+	position: relative;
+	bottom: 70px;
+	left: 50px;
+}
+
+.time {
+	font-family: Poppins;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 0;
+	color: #330693;
+}
+
+.data {
+	margin: 0;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	opacity: 0.5;
+	color: #330693;
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalRegister from '../../organisms/Modal'; // Importe o novo componente
 import TimeCard from '../../organisms/TimeCard';
 import './style.scss';
 
@@ -8,6 +9,12 @@ const Dashboard = () => {
 		{ personName: 'Amanda Manduca', personIdentifier: '002', date: '12/10/19', time: '17:10h' },
 		// Adicione mais dados aqui...
 	];
+
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const toggleModal = () => {
+		setModalOpen(!modalOpen);
+	};
 
 	return (
 		<div className='dashboard'>
@@ -26,6 +33,10 @@ const Dashboard = () => {
 						time={data.time}
 					/>
 				))}
+				<ModalRegister
+					timeValue="10:30" // Substitua pelo valor real de hora
+					dateValue="26/09/2021" // Substitua pelo valor real de data
+				/>
 			</div>
 		</div>
 	);

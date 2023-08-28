@@ -64,6 +64,31 @@
 	}
 }
 
+.modalbtn {
+	background-color: #330693;
+	color: #fff;
+	width: 200px;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.7);
+		color: #330693;
+		border: 1px solid #330693;
+	}
+}
+
+.cancelbtn {
+	background-color: #fff;
+	color: #330693;
+	border: 1px solid #330693;
+	width: 200px;
+
+	&:hover {
+		border: 1px solid #fff;
+		background-color: #330693;
+		color: #fff;
+	}
+}
+
 .loginBtn {
 	background-color: #330693;
 	color: #fff;
