@@ -31,7 +31,7 @@ const LoginPage = () => {
 	return (
 		<div className='login-page container'>
 			<div className='login-section'>
-				<Image images={[{ src: loginImage, alt: 'Login Image' }]} />
+				<Image images={[{ src: loginImage, alt: 'Login Image' }]} variant="variant-loginHero" />
 				<h1>Bem vindo ao PontoGo</h1>
 				<h2>Aqui você fará toda gestão do seu sistema de pontos.</h2>
 			</div>
@@ -53,6 +53,7 @@ const LoginPage = () => {
 					</p>
 					<Button label={action ? 'Entrar' : 'Enviar'} variant='loginBtn' type='submit' />
 				</form>
+
 			</div>
 		</div>
 	)

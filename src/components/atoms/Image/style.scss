@@ -10,7 +10,17 @@
 
 }
 
+.variant-loginHero {
+	max-height: 640px;
+}
+
+.variant-dash {
+	width: 134px;
+}
+
 .variant-login {
+	margin-bottom: 40px;
+
 	@include mobile {
 		max-width: 270px;
 	}

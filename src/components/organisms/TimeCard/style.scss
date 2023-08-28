@@ -1,0 +1,92 @@
+@import './../../../mixins';
+
+.time-card {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 1200px;
+	margin: 15px 0px;
+
+	@media (min-width: 768px) and (max-width: 1300px) {
+
+		width: 100%;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
+
+	.person-info {
+		display: flex;
+		flex-direction: column;
+		border-left: 5px solid #8A53FF;
+		flex-direction: column;
+		padding-left: 15px;
+		margin-left: 15px;
+		width: 270px;
+
+		.person-name {
+			font-family: Poppins;
+			font-size: 22px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			letter-spacing: 0.44px;
+			color: #20292E;
+
+			@include mobile {
+				font-size: 18px;
+			}
+		}
+
+		.person-identifier {
+			font-family: Poppins;
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			letter-spacing: 0.32px;
+			color: #20292E;
+			opacity: 0.5;
+
+			@include mobile {
+				font-size: 14px;
+			}
+		}
+	}
+
+
+	.date {
+		font-family: Poppins;
+		font-size: 22px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.44px;
+		color: #20292E;
+		opacity: 0.6;
+
+		@include mobile {
+			font-size: 18px;
+		}
+	}
+
+	.time {
+		font-family: Poppins;
+		font-size: 22px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+		letter-spacing: 0.44px;
+		color: #20292E;
+		opacity: 0.6;
+
+		@include mobile {
+			font-size: 18px;
+		}
+	}
+
+}

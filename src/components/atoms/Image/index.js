@@ -14,7 +14,7 @@ const Image = ({ images, variant }) => {
 					className={imageClass}
 					style={{
 						maxWidth: 'auto',
-						maxHeight: '100%',
+						maxHeight: 'auto',
 					}}
 				/>
 			))}

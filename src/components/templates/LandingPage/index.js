@@ -43,7 +43,15 @@ const LandingPage = () => {
 						<p className='contact-text'>se conectar com a gente</p></div>
 					<Icon className="icon-container" icons={socialMediaIcons} links={socialMediaLinks} />
 				</div>
+
+
 			</section>
+
+			<div className="copywrite d-flex">
+				<hr className="vertical-line" />
+				<h5>PontoGo - Todos direitos reservados</h5>
+				<hr className="vertical-line" />
+			</div>
 		</div>
 	);
 }
