@@ -3,8 +3,8 @@
 .navbar {
 
 	@include mobile {
+		flex-direction: column;
 
-		/* Estilos para dispositivos móveis */
 		.navbar-center {
 			flex-direction: column;
 			align-items: center;
@@ -34,7 +34,7 @@
 		gap: 40px;
 
 		@include mobile {
-			gap: 16px;
+			gap: 45px;
 			flex-direction: row;
 		}
 	}
@@ -44,7 +44,7 @@
 		align-items: center;
 
 		@include mobile {
-			gap: 16px;
+			gap: 45px;
 			flex-direction: row;
 		}
 	}

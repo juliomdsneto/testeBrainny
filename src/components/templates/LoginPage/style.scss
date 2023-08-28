@@ -95,7 +95,7 @@
 
 		input {
 			width: 100%;
-
+			font-family: Poppins;
 			padding: 10px;
 			border: 1px solid #ccc;
 			border-radius: 4px;
@@ -121,13 +121,26 @@
 			color: #330693;
 		}
 
-		.label-input {
-			font-family: Poppins;
-			font-size: 20px;
-			font-style: normal;
-			font-weight: 400;
-			line-height: normal;
-			color: #20292E;
+
+		.password-input-wrapper {
+			position: relative;
+		}
+
+		input[type='password'] {
+			padding-right: 40px;
+			/* Make space for the icon */
+		}
+
+		.password-toggle-icon {
+			color: #330693;
+		}
+
+		.password-toggle-icon {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+			cursor: pointer;
 		}
 	}
 }

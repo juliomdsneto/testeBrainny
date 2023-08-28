@@ -15,7 +15,7 @@ const LandingPage = () => {
 	return (
 		<div className="landing-page">
 			<Navbar />
-			<section id="hero" className="section">
+			<section id="hero" className="hero">
 				<div>
 					<ContentWithImage
 						content={contentHome}
@@ -31,8 +31,11 @@ const LandingPage = () => {
 				</div>
 			</section>
 
-			<section>
-
+			<section className='plans'>
+				<div className='find-plan d-flex'>
+					<h3 className='title-plan'>Encontre o plano perfeito</h3>
+					<p className='text-plan'>Escolha o plano que melhor se encaixa na sua empresa e  faça sua assinatura, dentro de 72h iremos liberar seus acessos.</p>
+				</div>
 				<Carousel />
 			</section>
 

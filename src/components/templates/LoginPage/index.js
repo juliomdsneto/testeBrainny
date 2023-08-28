@@ -1,32 +1,32 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
-import Button from '../../atoms/Button'
-import Image from '../../atoms/Image'
+import Button from '../../atoms/Button';
+import Image from '../../atoms/Image';
 
-import { useAuth } from '../../../hooks'
+import { useAuth } from '../../../hooks';
 
-import loginImage from '../../../images/grupo_pontoGo.png'
-import pontogo from '../../../images/logo_login.png'
-import './style.scss'
+import loginImage from '../../../images/grupo_pontoGo.png';
+import pontogo from '../../../images/logo_login.png';
+import './style.scss';
 
 const LoginPage = () => {
-	const [action, setAction] = useState(true)
-	const { user, setUser } = useAuth()
+	const [action, setAction] = useState(true);
+	const [showPassword, setShowPassword] = useState(false);
+	const { user, setUser } = useAuth();
 
-	const { register, handleSubmit } = useForm()
+	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data) => {
 		try {
-			setUser(data)
-			toast.success('Logado com sucesso!')
+			setUser(data);
+			toast.success('Logado com sucesso!');
 		} catch {
-			toast.error('Não foi possível realizar login.')
+			toast.error('Não foi possível realizar login.');
 		}
-	}
-
-	console.log({ user })
+	};
 
 	return (
 		<div className='login-page container'>
@@ -37,14 +37,26 @@ const LoginPage = () => {
 			</div>
 			<div className='login-form-section'>
 				<Image images={[{ src: pontogo, alt: 'Logo' }]} variant='variant-login' />
-				<h3>{action ? 'Faça login' : 'Resetar senhar'}</h3>
+				<h3>{action ? 'Faça login' : 'Resetar senha'}</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<label className='label-input'>Email:</label>
 					<input type='text' placeholder='exemplo@email.com' {...register('email')} />
 					{action && (
 						<>
 							<label className='label-input'>Senha:</label>
-							<input type='password' placeholder='*************' {...register('password')} />
+							<div className='password-input-wrapper'>
+								<input
+									type={showPassword ? 'text' : 'password'}
+									placeholder='*************'
+									{...register('password')}
+								/>
+								<span
+									className='password-toggle-icon'
+									onClick={() => setShowPassword(!showPassword)}
+								>
+									{showPassword ? <FaEyeSlash /> : <FaEye />}
+								</span>
+							</div>
 						</>
 					)}
 
@@ -53,10 +65,9 @@ const LoginPage = () => {
 					</p>
 					<Button label={action ? 'Entrar' : 'Enviar'} variant='loginBtn' type='submit' />
 				</form>
-
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default LoginPage
+export default LoginPage;
