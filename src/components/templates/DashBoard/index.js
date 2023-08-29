@@ -36,7 +36,15 @@ const Dashboard = () => {
 		<div className='dashboard'>
 			<SideMenu />
 			<div className='dash-content'>
-				<p>Dashboard</p>
+				<ModalRegister
+					timeValue={currentTime}
+					dateValue={currentDate}
+				/>
+				<div className='d-flex fields'>
+					<p className='fieldsCard'>Dashboard</p>
+					<p className='fieldsCard'>Data</p>
+					<p className='fieldsCard'>Hora</p>
+				</div>
 				{/* Renderize os cards TimeCard usando map */}
 				{timeCardData.map((data, index) => (
 					<TimeCard
@@ -47,10 +55,7 @@ const Dashboard = () => {
 						time={data.time}
 					/>
 				))}
-				<ModalRegister
-					timeValue={currentTime}
-					dateValue={currentDate}
-				/>
+
 			</div>
 		</div>
 	);

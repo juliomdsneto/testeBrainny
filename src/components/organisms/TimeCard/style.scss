@@ -1,5 +1,11 @@
 @import './../../../mixins';
 
+.dash-content {
+	display: flex;
+	flex-direction: column;
+	max-width: 1100px;
+}
+
 .time-card {
 	background-color: #fff;
 	border: 1px solid #ccc;
@@ -7,8 +13,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	// 
-	gap: 110px;
+	gap: 160px;
 	margin: 15px 0px;
 
 	@media (min-width: 768px) and (max-width: 1300px) {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import Button from '../../atoms/Button';
@@ -8,11 +9,19 @@ import Image from '../../atoms/Image';
 
 import { useAuth } from '../../../hooks';
 
+import { users } from './mockedData';
+
 import loginImage from '../../../images/grupo_pontoGo.png';
 import pontogo from '../../../images/logo_login.png';
 import './style.scss';
 
+
+
+
 const LoginPage = () => {
+
+	const history = useHistory()
+
 	const [action, setAction] = useState(true);
 	const [showPassword, setShowPassword] = useState(false);
 	const { user, setUser } = useAuth();
@@ -21,12 +30,21 @@ const LoginPage = () => {
 
 	const onSubmit = (data) => {
 		try {
-			setUser(data);
-			toast.success('Logado com sucesso!');
+			const findUser = users.find((user) => user.email === data.email)
+
+			if (!findUser || findUser.password !== data.password) {
+				return toast.error('Senha ou usuário não encontrados.')
+
+			}
+
+			setUser(findUser)
+			toast.success('Logado com sucesso!')
+			history.push('dashboard')
+
 		} catch {
-			toast.error('Não foi possível realizar login.');
+			toast.error('Não foi possível realizar login.')
 		}
-	};
+	}
 
 	return (
 		<div className='login-page container'>
