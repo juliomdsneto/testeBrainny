@@ -8,7 +8,6 @@ import Button from '../../atoms/Button';
 import Image from '../../atoms/Image';
 
 import { useAuth } from '../../../hooks';
-
 import { users } from './mockedData';
 
 import loginImage from '../../../images/grupo_pontoGo.png';
@@ -56,7 +55,7 @@ const LoginPage = () => {
 				<h2>Aqui você fará toda gestão do seu sistema de pontos.</h2>
 			</div>
 			<div className='login-form-section'>
-				<Image images={[{ src: pontogo, alt: 'Logo' }]} variant='variant-login' />
+				<a href='/'><Image images={[{ src: pontogo, alt: 'Logo' }]} variant='variant-login' /></a>
 				<h3>{action ? 'Faça login' : 'Resetar senha'}</h3>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<label className='label-input'>Email:</label>

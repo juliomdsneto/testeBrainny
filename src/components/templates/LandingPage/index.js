@@ -5,7 +5,6 @@ import Navbar from '../../molecules/Navbar';
 import Carousel from '../../organisms/Carousel';
 import './style.scss';
 
-
 import spaceGuyImage from '../../../images/space_guy.png';
 import { contentHome, images, socialMediaIcons, socialMediaLinks } from './constants';
 

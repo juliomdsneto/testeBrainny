@@ -1,16 +1,10 @@
 import React from 'react';
 import './style.scss';
 
-const TimeCard = ({ personName, personIdentifier, date, time, isFirstCard }) => {
+const TimeCard = ({ personName, personIdentifier, date, time }) => {
 	return (
-		<div className={`time-card ${isFirstCard ? 'first-card' : ''}`}>
-			{isFirstCard && (
-				<div className='d-flex fields'>
-					<p className='fieldsCard'>Dashboard</p>
-					<p className='fieldsCard'>Data</p>
-					<p className='fieldsCard'>Hora</p>
-				</div>
-			)}
+		<div className={`time-card `}>
+
 
 			<div className='person-info'>
 				<div className='person-name'>{personName}</div>

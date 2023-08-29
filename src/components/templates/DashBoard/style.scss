@@ -6,11 +6,24 @@
 	padding-left: 220px;
 	padding-top: 60px;
 	padding-bottom: 80px;
+
+	@include mobile {
+		padding-left: 0;
+	}
 }
 
 .fields {
 	gap: 160px;
 	padding-top: 30px;
+
+	@media (min-width: 768px) and (max-width: 1300px) {
+		gap: 60px;
+		justify-content: space-between;
+	}
+
+	@include mobile {
+		gap: 50px;
+	}
 }
 
 .fieldsCard {
@@ -36,6 +49,10 @@
 	@media (min-width: 768px) and (max-width: 1300px) {
 		margin-left: 0;
 	}
+
+	@include mobile {
+		margin-left: 0;
+	}
 }
 
 .fieldsCard-hora {
@@ -50,6 +67,11 @@
 
 	@media (min-width: 768px) and (max-width: 1300px) {
 		margin-left: 0;
+	}
+
+	@include mobile {
+		margin-left: 0;
+
 	}
 }
 
@@ -80,9 +102,6 @@
 	box-shadow: 0 0 0 0.25rem rgba(19, 9, 98, 0.5);
 }
 
-.btn-danger:active {
-	background-color: yellow;
-}
 
 .btn-danger:focus {
 	background-color: #330693;
@@ -114,7 +133,9 @@
 	display: flex;
 	align-items: center;
 
-
+	@include mobile {
+		width: 100%;
+	}
 }
 
 .modal-header {
@@ -135,6 +156,10 @@
 	line-height: normal;
 	border-bottom: none;
 	color: #20292E;
+
+	@include mobile {
+		font-size: 16px;
+	}
 }
 
 .modal-body {
@@ -187,4 +212,26 @@
 	line-height: normal;
 	opacity: 0.5;
 	color: #330693;
+}
+
+.exit-mb {
+	display: none;
+
+	@include mobile {
+		display: flex;
+		align-items: center;
+		background-image: url('../../../images/exit.png');
+		background-repeat: no-repeat;
+		padding-left: 30px;
+
+		background-size: 20px;
+		text-decoration: none;
+		background-position: left center;
+		color: #000;
+		font-family: Poppins;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
 }
