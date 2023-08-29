@@ -25,7 +25,7 @@ const LandingPage = () => {
 						imageAlt="a floating in space with Virtual Reality"
 					/>
 				</div>
-				<div className='d-flex justify-content-center' >
+				<div className='d-flex justify-content-center pt-3' >
 					<Image images={images} variant="variant-210" />
 				</div>
 			</section>
@@ -42,18 +42,20 @@ const LandingPage = () => {
 				<div className='d-flex justify-content-center gap-5 pt-5 pb-5 container'>
 					<div>
 						<h4 className='contact-title'>@pontogo</h4>
-						<p className='contact-text'>se conectar com a gente</p></div>
+						<p className='contact-text'>se conecta com a gente</p></div>
 					<Icon className="icon-container" icons={socialMediaIcons} links={socialMediaLinks} />
 				</div>
 
 
 			</section>
 
-			<div className="copywrite d-flex">
-				<hr className="vertical-line" />
-				<h5>PontoGo - Todos direitos reservados</h5>
-				<hr className="vertical-line" />
-			</div>
+			<section>
+				<div className="copywrite d-flex">
+					<hr className="vertical-line" />
+					<h5>PontoGo - Todos direitos reservados</h5>
+					<hr className="vertical-line" />
+				</div>
+			</section>
 		</div>
 	);
 }

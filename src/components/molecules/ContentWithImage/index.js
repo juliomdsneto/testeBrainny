@@ -7,7 +7,7 @@ import './style.scss';
 const ContentWithImage = ({ content, imageSrc, imageAlt }) => {
 	return (
 		<div className="content-with-image container">
-			<div className="content gap-3">
+			<div className="content gap-2">
 				{content.map((item, index) => (
 					<div key={index} className={`content-item ${item.tag}`}>
 						{item.tag === 'h1' && item.text.includes('Controle de Pontos') ? (

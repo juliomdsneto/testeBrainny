@@ -62,7 +62,7 @@ const LoginPage = () => {
 					<input type='text' placeholder='exemplo@email.com' {...register('email')} />
 					{action && (
 						<>
-							<label className='label-input'>Senha:</label>
+							<label className='label-input mt-3'>Senha:</label>
 							<div className='password-input-wrapper'>
 								<input
 									type={showPassword ? 'text' : 'password'}

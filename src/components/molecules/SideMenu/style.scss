@@ -70,4 +70,8 @@ a:hover {
 
 .p-20 {
 	padding: 20px;
+
+	@include mobile {
+		padding: 20px 0px;
+	}
 }

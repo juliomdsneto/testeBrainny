@@ -30,7 +30,8 @@ export const socialMediaIcons = [
 ];
 
 export const socialMediaLinks = [
-	'https://www.instagram.com/seu_perfil_do_instagram',
-	'https://exemplo2.com',
+	'https://www.instagram.com/pontogoapp/',
+	'https://www.facebook.com/pontogoapp',
+	'https://www.linkedin.com/company/pontogo/',
 
 ];

@@ -214,6 +214,56 @@
 	color: #330693;
 }
 
+.pagination {
+	display: flex;
+	gap: 5px;
+}
+
+
+.next-button {
+	height: 30px;
+	opacity: 0.5;
+}
+
+li {
+	font-family: Roboto;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	color: #20292E;
+	border-radius: 2px;
+	border: 0.5px solid #20292E;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.5;
+}
+
+
+.next-page {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.logout {
+	display: none;
+
+	@include mobile {
+		display: flex;
+	}
+}
+
 .exit-mb {
 	display: none;
 
