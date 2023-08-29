@@ -11,6 +11,34 @@
 	padding-top: 40px;
 }
 
+.exit {
+	display: flex;
+	align-items: center;
+	background-image: url('../../../images/exit.png');
+	background-repeat: no-repeat;
+	padding-left: 30px;
+
+	background-size: 20px;
+	text-decoration: none;
+	background-position: left center;
+	color: #000;
+	font-family: Poppins;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.exit a {
+	margin-left: 10px;
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #20292E;
+}
+
 .menu {
 	display: flex;
 	gap: 10px;

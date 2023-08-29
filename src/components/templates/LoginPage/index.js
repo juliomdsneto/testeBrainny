@@ -30,17 +30,21 @@ const LoginPage = () => {
 
 	const onSubmit = (data) => {
 		try {
-			const findUser = users.find((user) => user.email === data.email)
+			const findUser = users.find(
+				(user) => user.email === data.email
+			)
 
 			if (!findUser || findUser.password !== data.password) {
 				return toast.error('Senha ou usuário não encontrados.')
-
 			}
+
+			delete findUser.password
+
+			localStorage.setItem('@pontogo', JSON.stringify(findUser))
 
 			setUser(findUser)
 			toast.success('Logado com sucesso!')
 			history.push('dashboard')
-
 		} catch {
 			toast.error('Não foi possível realizar login.')
 		}

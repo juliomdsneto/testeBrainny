@@ -13,7 +13,7 @@ const Dashboard = () => {
 	const timeCardData = [
 		{ personName: 'João Silva', personIdentifier: '001', date: '12/10/19', time: '18:30h' },
 		{ personName: 'Amanda Manduca', personIdentifier: '002', date: '12/10/19', time: '17:10h' },
-		// Adicione mais dados aqui...
+
 	];
 
 	const [modalOpen, setModalOpen] = useState(false);
@@ -45,7 +45,6 @@ const Dashboard = () => {
 					<p className='fieldsCard'>Data</p>
 					<p className='fieldsCard'>Hora</p>
 				</div>
-				{/* Renderize os cards TimeCard usando map */}
 				{timeCardData.map((data, index) => (
 					<TimeCard
 						key={index}
