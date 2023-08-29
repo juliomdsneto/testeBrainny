@@ -6,22 +6,15 @@ import './style.scss';
 
 import SideMenu from '../../molecules/SideMenu';
 
+import { useAuth } from '../../../hooks';
+
 const Dashboard = () => {
-	const [currentTime, setCurrentTime] = useState(moment().format('H:mm'));
-	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'));
+	const [currentTime, setCurrentTime] = useState(moment().format('H:mm'))
+	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'))
+	const [registersData, setRegistersData] = useState([])
 
-	const timeCardData = [
-		{ personName: 'João Silva', personIdentifier: '001', date: '12/10/19', time: '18:30h' },
-		{ personName: 'Amanda Manduca', personIdentifier: '002', date: '12/10/19', time: '17:10h' },
-
-	];
-
-	const [modalOpen, setModalOpen] = useState(false);
-
-	const toggleModal = () => {
-		setModalOpen(!modalOpen);
-	};
-
+	const { user } = useAuth()
+	const registers = JSON.parse(localStorage.getItem('@pontogo_registers'))
 
 	useEffect(() => {
 		const startTimer = setInterval(() => {
@@ -32,32 +25,43 @@ const Dashboard = () => {
 		return () => clearInterval(startTimer)
 	}, [])
 
+	useEffect(() => {
+		if (!registers) {
+			return setRegistersData([])
+		}
+		setRegistersData(
+			user?.role === 'colaborador'
+				? registers.filter((register) => register.userId === user.id).reverse()
+				: registers.reverse()
+		)
+	}, [registers, user])
+
 	return (
 		<div className='dashboard'>
 			<SideMenu />
 			<div className='dash-content'>
 				<ModalRegister
+					user={user}
 					timeValue={currentTime}
 					dateValue={currentDate}
 				/>
 				<div className='d-flex fields'>
 					<p className='fieldsCard'>Dashboard</p>
-					<p className='fieldsCard'>Data</p>
-					<p className='fieldsCard'>Hora</p>
+					<p className='fieldsCard-data'>Data</p>
+					<p className='fieldsCard-hora'>Hora</p>
 				</div>
-				{timeCardData.map((data, index) => (
+				{registersData.map((data, index) => (
 					<TimeCard
 						key={index}
-						personName={data.personName}
-						personIdentifier={data.personIdentifier}
+						personName={data.name}
+						personIdentifier={data.id}
 						date={data.date}
-						time={data.time}
+						time={`${data.hour}h`}
 					/>
 				))}
-
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default Dashboard;
+export default Dashboard

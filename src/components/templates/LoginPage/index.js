@@ -16,8 +16,6 @@ import pontogo from '../../../images/logo_login.png';
 import './style.scss';
 
 
-
-
 const LoginPage = () => {
 
 	const history = useHistory()

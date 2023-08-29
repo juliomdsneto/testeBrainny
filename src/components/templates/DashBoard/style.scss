@@ -1,12 +1,16 @@
+@import './../../../mixins';
+
 .dashboard {
 	background-color: #F2F2F2;
 	display: flex;
 	padding-left: 220px;
 	padding-top: 60px;
+	padding-bottom: 80px;
 }
 
 .fields {
 	gap: 160px;
+	padding-top: 30px;
 }
 
 .fieldsCard {
@@ -17,6 +21,36 @@
 	line-height: normal;
 	letter-spacing: 0.44px;
 	color: #20292E;
+}
+
+.fieldsCard-data {
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: 0.44px;
+	color: #20292E;
+	margin-left: 166px;
+
+	@media (min-width: 768px) and (max-width: 1300px) {
+		margin-left: 0;
+	}
+}
+
+.fieldsCard-hora {
+	font-family: Poppins;
+	font-size: 22px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	letter-spacing: 0.44px;
+	color: #20292E;
+	margin-left: 75px;
+
+	@media (min-width: 768px) and (max-width: 1300px) {
+		margin-left: 0;
+	}
 }
 
 .btnModal {
