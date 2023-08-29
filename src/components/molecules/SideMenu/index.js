@@ -1,22 +1,24 @@
-import AnchorWithImage from '../../atoms/AnchorWithImage';
-import Button from '../../atoms/Button';
-import Icon from '../../atoms/Icon';
-import Image from '../../atoms/Image';
-import './style.scss';
+import logoCalendar from '../../../images/calendar.png'
+import logo from '../../../images/logo_login.png'
+import logoSair from '../../../images/exit.png'
+import './style.scss'
 
-const SideMenu = ({ logoSrc, anchorTo, anchorLabel, iconProps, buttonProps }) => {
+const SideMenu = () => {
 	return (
-		<div className="side-menu">
-			<div className="menu-header">
-				<Image src={logoSrc} alt="Logo" />
-				<AnchorWithImage to={anchorTo} />
+		<div className='side-menu'>
+			<div>
+				<img width='150px' className='p-20' src={logo} alt='Brand logo' />
+				<div className='item-menu d-flex'>
+					<img width='24px' src={logoCalendar} alt='icon' />
+					<p>Registro</p>
+				</div>
 			</div>
-			<div className="menu-footer">
-				<Icon {...iconProps} />
-				<Button {...buttonProps} variant="primary" label="Sair" />
+			<div className='p-20 d-flex'>
+				<img src={logoSair} alt='Sair' />
+				Sair
 			</div>
 		</div>
-	);
+	)
 }
 
-export default SideMenu;
+export default SideMenu

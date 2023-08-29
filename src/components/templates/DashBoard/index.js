@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import moment from 'moment';
+import React, { useEffect, useState } from 'react';
 import ModalRegister from '../../organisms/Modal'; // Importe o novo componente
 import TimeCard from '../../organisms/TimeCard';
 import './style.scss';
 
+import SideMenu from '../../molecules/SideMenu';
+
 const Dashboard = () => {
+	const [currentTime, setCurrentTime] = useState(moment().format('H:mm'));
+	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'));
+
 	const timeCardData = [
 		{ personName: 'João Silva', personIdentifier: '001', date: '12/10/19', time: '18:30h' },
 		{ personName: 'Amanda Manduca', personIdentifier: '002', date: '12/10/19', time: '17:10h' },
@@ -16,11 +22,19 @@ const Dashboard = () => {
 		setModalOpen(!modalOpen);
 	};
 
+
+	useEffect(() => {
+		const startTimer = setInterval(() => {
+			setCurrentTime(moment().format('H:mm'))
+			setCurrentDate(moment().format('DD/MM/yyyy'))
+		}, 1000)
+
+		return () => clearInterval(startTimer)
+	}, [])
+
 	return (
 		<div className='dashboard'>
-			<div className='sideMenu'>
-				{/* ... Conteúdo do SideMenu ... */}
-			</div>
+			<SideMenu />
 			<div className='dash-content'>
 				<p>Dashboard</p>
 				{/* Renderize os cards TimeCard usando map */}
@@ -34,8 +48,8 @@ const Dashboard = () => {
 					/>
 				))}
 				<ModalRegister
-					timeValue="10:30" // Substitua pelo valor real de hora
-					dateValue="26/09/2021" // Substitua pelo valor real de data
+					timeValue={currentTime}
+					dateValue={currentDate}
 				/>
 			</div>
 		</div>
