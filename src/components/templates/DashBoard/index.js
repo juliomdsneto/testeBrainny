@@ -70,7 +70,7 @@ const Dashboard = () => {
 						<TimeCard
 							key={index}
 							personName={data.name}
-							personIdentifier={data.id}
+							personIdentifier={data.userId}
 							date={data.date}
 							time={`${data.hour}h`}
 						/>

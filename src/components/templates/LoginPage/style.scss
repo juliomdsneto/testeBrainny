@@ -30,6 +30,8 @@
 		box-shadow: none;
 		gap: 10px;
 
+
+
 		@include mobile {
 			width: 100%;
 			padding: 0px 16px;
@@ -48,6 +50,7 @@
 			font-weight: 700;
 			line-height: normal;
 			color: #330693;
+			margin: 0;
 
 			@include mobile {
 				font-size: 24px;
@@ -63,6 +66,7 @@
 			line-height: normal;
 			color: #330693;
 			max-width: 381px;
+			margin: 0;
 
 			@include mobile {
 				font-size: 22px;

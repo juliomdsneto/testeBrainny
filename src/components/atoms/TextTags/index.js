@@ -2,7 +2,7 @@
 import React from 'react';
 
 const Text = ({ tag, text, className }) => {
-	const Tag = tag; // Use a tag passada como prop
+	const Tag = tag;
 
 	return <Tag className={`textDefault ${className}`}>{text}</Tag>;
 };

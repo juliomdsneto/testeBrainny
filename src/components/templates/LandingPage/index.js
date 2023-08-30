@@ -30,7 +30,7 @@ const LandingPage = () => {
 				</div>
 			</section>
 
-			<section className='plans'>
+			<section id="plans" className='plans'>
 				<div className='find-plan d-flex'>
 					<h3 className='title-plan'>Encontre o plano perfeito</h3>
 					<p className='text-plan'>Escolha o plano que melhor se encaixa na sua empresa e  faça sua assinatura, dentro de 72h iremos liberar seus acessos.</p>

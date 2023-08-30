@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importe os ícones
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import {
 	Button,
 	Card,
@@ -100,9 +100,15 @@ function ExampleCards(props) {
 			const classes = `custom-card ${isActive ? 'active' : ''} ${isPrev || isNext ? 'semi-active' : ''
 				}`;
 
+
+			const cardStyle = {
+				transition: 'opacity 0.5s ease-in-out',
+				opacity: isActive ? 1 : 0.3,
+			};
+
 			return (
 				(isPrev || isNext || isActive) && (
-					<Card className={classes} key={item.key}>
+					<Card className={classes} key={item.key} style={cardStyle}>
 						<CardBody>
 							<CardTitle tag='h5'>{item.caption}</CardTitle>
 							<p class="price">{item.title}</p>
@@ -140,9 +146,11 @@ function ExampleCards(props) {
 		});
 	}
 
+
+
 	return (
 		<div className='card-container'>
-			<div className='controls'>
+			<div className='controls' >
 				<Button className='control-cards' onClick={previous}>
 					<FaArrowLeft /> {/* Ícone de seta para a esquerda */}
 				</Button>

@@ -32,7 +32,7 @@ const LoginPage = () => {
 			)
 
 			if (!findUser || findUser.password !== data.password) {
-				return toast.error('Senha ou usuário não encontrados.')
+				return toast.error('user or password not found.')
 			}
 
 			delete findUser.password
@@ -40,10 +40,10 @@ const LoginPage = () => {
 			localStorage.setItem('@pontogo', JSON.stringify(findUser))
 
 			setUser(findUser)
-			toast.success('Logado com sucesso!')
+			toast.success('Sucess!')
 			history.push('dashboard')
 		} catch {
-			toast.error('Não foi possível realizar login.')
+			toast.error('Error.')
 		}
 	}
 

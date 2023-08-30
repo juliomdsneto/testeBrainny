@@ -10,7 +10,7 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 
 	const toggle = () => setModal(!modal);
 
-	const handleBaterPonto = (hour, date) => {
+	const handleCheckIn = (hour, date) => {
 		if (!JSON.parse(localStorage.getItem('@pontogo_registers'))) {
 			localStorage.setItem('@pontogo_registers', JSON.stringify([]))
 		}
@@ -46,7 +46,7 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 						color='primary'
 						variant='modalbtn'
 						label='Bater ponto'
-						onClick={() => handleBaterPonto(timeValue, dateValue)}
+						onClick={() => handleCheckIn(timeValue, dateValue)}
 					></Buttonn>{' '}
 					<Buttonn
 						color='secondary'
@@ -60,4 +60,4 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 	)
 }
 
-export default ModalRegister
+export default ModalRegister;
