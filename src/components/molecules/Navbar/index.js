@@ -6,7 +6,7 @@ import './style.scss';
 
 const Navbar = ({ history }) => {
 	const handleLoginButtonClick = () => {
-		history.push('/login'); // Agora você pode usar o history.push
+		history.push('/login');
 	};
 
 	return (

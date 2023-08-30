@@ -2,6 +2,27 @@
 
 .navbar {
 
+	a {
+		color: #fff !important;
+		font-family: Poppins !important;
+		font-size: 16px !important;
+		font-style: normal !important;
+		font-weight: 400 !important;
+		line-height: normal !important;
+	}
+
+	li {
+		opacity: 1;
+		border: none;
+		color: #fff !important;
+		font-family: Poppins !important;
+		font-size: 16px !important;
+		font-style: normal !important;
+		font-weight: 400 !important;
+		line-height: normal !important;
+		width: 100% !important;
+	}
+
 	@include mobile {
 		flex-direction: column;
 
@@ -17,11 +38,7 @@
 			align-items: center;
 		}
 
-		li a {
-			/* Estilos específicos para os links de navegação em dispositivos móveis */
-			font-size: 14px;
 
-		}
 	}
 
 	ul {

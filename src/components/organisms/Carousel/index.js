@@ -1,37 +1,85 @@
 import React, { useState } from 'react';
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importe os ícones
+import {
+	Button,
+	Card,
+	CardBody,
+	CardSubtitle,
+	CardText,
+	CardTitle,
+} from 'reactstrap';
 import './style.scss';
+
 
 const items = [
 	{
 		altText: 'Slide 1',
-		caption: 'Slide 1',
+		caption: 'Plano Bronze',
+		title: 'R$ 30',
+		subtitle: 'Uso de 5 colaboradores',
+		content: [
+			{ text: 'Área de meus registros', bonus: true },
+			{ text: 'Dashboard', bonus: true },
+			{ text: 'Acesso de 5 colaboradores', bonus: true },
+		],
+		misscontent: [
+			{ text: 'Suporte exclusivo', failcheck: true },
+			{ text: 'Email corporativo', failcheck: true },
+		],
 		key: 1,
 	},
 	{
 		altText: 'Slide 2',
-		caption: 'Slide 2',
+		caption: 'Plano Prata',
+		title: 'R$ 50',
+		subtitle: 'Uso de 10 colaboradores',
+		content: [
+			{ text: 'Área de meus registros', bonus: true },
+			{ text: 'Dashboard', bonus: true },
+			{ text: 'Acesso de 5 colaboradores', bonus: true },
+		],
+		misscontent: [
+			{ text: 'Suporte exclusivo', failcheck: true },
+			{ text: 'Email corporativo', failcheck: true },
+		],
 		key: 2,
 	},
 	{
 		altText: 'Slide 3',
-		caption: 'Slide 3',
+		caption: 'Plano Ouro',
+		title: 'R$ 100',
+		subtitle: 'Uso de 20 colaboradores',
+		content: [
+			{ text: 'Área de meus registros', bonus: true },
+			{ text: 'Dashboard', bonus: true },
+			{ text: 'Acesso de 5 colaboradores', bonus: true },
+			{ text: 'Suporte exclusivo', bonus: true },
+		],
+		misscontent: [
+			{ text: 'Email corporativo', failcheck: true },
+		],
 		key: 3,
 	},
 	{
 		altText: 'Slide 4',
-		caption: 'Slide 4',
+		caption: 'Plano Platina',
+		title: 'R$ 200',
+		subtitle: 'Acessos ilimitados',
+		content: [
+			{ text: 'Área de meus registros', bonus: true },
+			{ text: 'Dashboard', bonus: true },
+			{ text: 'Acesso de 5 colaboradores', bonus: true },
+			{ text: 'Suporte exclusivo', bonus: true },
+			{ text: 'Email corporativo', bonus: true },
+		],
+		misscontent: [],
 		key: 4,
-	},
-	{
-		altText: 'Slide 5',
-		caption: 'Slide 5',
-		key: 5,
 	},
 ];
 
+
 function ExampleCards(props) {
-	const [activeIndex, setActiveIndex] = useState(2);
+	const [activeIndex, setActiveIndex] = useState(1);
 
 	const previous = () => {
 		const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
@@ -46,31 +94,61 @@ function ExampleCards(props) {
 	const renderCards = () => {
 		return items.map((item, index) => {
 			const isActive = index === activeIndex;
-			const isSemiActive = index === activeIndex - 1 || index === activeIndex + 1;
-			const classes = `custom-card ${isActive ? 'active' : ''} ${isSemiActive ? 'semi-active' : ''}`;
+			const isPrev = index === activeIndex - 1;
+			const isNext = index === activeIndex + 1;
+
+			const classes = `custom-card ${isActive ? 'active' : ''} ${isPrev || isNext ? 'semi-active' : ''
+				}`;
 
 			return (
-				<Card className={classes} key={item.key}>
-					<CardBody>
-						<CardTitle tag="h5">{item.caption}</CardTitle>
-						<CardSubtitle className="mb-2 text-muted" tag="h6">
-							Card subtitle
-						</CardSubtitle>
-						<CardText>
-							Some quick example text to build on the card title and make up the bulk of the card‘s content.
-						</CardText>
-						<Button>Button</Button>
-					</CardBody>
-				</Card>
+				(isPrev || isNext || isActive) && (
+					<Card className={classes} key={item.key}>
+						<CardBody>
+							<CardTitle tag='h5'>{item.caption}</CardTitle>
+							<p class="price">{item.title}</p>
+							<CardSubtitle className='mb-2 text-muted' tag='h6'>
+
+							</CardSubtitle>
+							<div className=''>
+								<p className='amount'>{item.subtitle} </p>
+								{item.content.map((contentItem, contentIndex) => (
+									<p className={`bonus ${contentItem.bonus ? 'with-bonus' : ''}`} key={contentIndex}>
+										{contentItem.text}
+									</p>
+								))}
+							</div>
+							{item.misscontent && item.misscontent.length > 0 && (
+								<CardText className=''>
+									{item.misscontent.map((misscontentItem, misscontentIndex) => (
+										<p
+											className={`failcheck ${misscontentItem.failcheck ? 'with-failcheck' : ''
+												}`}
+											key={misscontentIndex}
+										>
+											{misscontentItem.text}
+										</p>
+									))}
+								</CardText>
+							)}
+
+							<Button className='btncarousel'>Assinar agora
+							</Button>
+						</CardBody>
+					</Card>
+				)
 			);
 		});
-	};
+	}
 
 	return (
-		<div className="card-container">
-			<div className="controls">
-				<Button onClick={previous}>Previous</Button>
-				<Button onClick={next}>Next</Button>
+		<div className='card-container'>
+			<div className='controls'>
+				<Button className='control-cards' onClick={previous}>
+					<FaArrowLeft /> {/* Ícone de seta para a esquerda */}
+				</Button>
+				<Button className='control-cards' onClick={next}>
+					<FaArrowRight /> {/* Ícone de seta para a direita */}
+				</Button>
 			</div>
 			{renderCards()}
 		</div>
