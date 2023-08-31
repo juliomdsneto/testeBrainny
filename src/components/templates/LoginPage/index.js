@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import Button from '../../atoms/Button';
 import Image from '../../atoms/Image';
@@ -38,7 +39,7 @@ const LoginPage = () => {
 
 
 			})
-			.catch((error) => console.log(error))
+			.catch((error) => toast.error("login e/ou senha inválidos"))
 	};
 
 	useEffect(() => {

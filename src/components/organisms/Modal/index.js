@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
@@ -5,47 +6,42 @@ import clock from '../../../images/clock.png';
 import Buttonn from '../../atoms/Button'; // Import the customized button
 import Image from '../../atoms/Image';
 
-
-
-function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
-	//continuar o modal	
-
-	const [time, setTime] = useState('');
-	const [date, setDate] = useState('');
-
-
+function ModalRegister({ user, args, imageAlt }) {
+	const [registers, setRegisters] = useState(
+		JSON.parse(localStorage.getItem('@pontogo_registers')) || []
+	);
+	const [currentTime, setCurrentTime] = useState(moment().format('H:mm'));
+	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'));
 	const [modal, setModal] = useState(false);
 
 	const toggle = () => {
 		setModal(!modal);
-
-		//setar setTime e setDate
-	}
-
-	// createRegisteredTime graphQL
-	//dar reload no get
+		setCurrentDate(moment().format('DD/MM/yyyy'));
+		setCurrentTime(moment().format('H:mm'));
+	};
 
 	const handleCheckIn = (hour, date) => {
 		if (!JSON.parse(localStorage.getItem('@pontogo_registers'))) {
-			localStorage.setItem('@pontogo_registers', JSON.stringify([]))
+			localStorage.setItem('@pontogo_registers', JSON.stringify([]));
 		}
-		const registers = JSON.parse(localStorage.getItem('@pontogo_registers'))
-
-		registers.push({
+		const newRegister = {
 			userId: user?.id,
 			name: user?.name,
 			date,
 			hour,
-		})
-		localStorage.setItem('@pontogo_registers', JSON.stringify(registers))
-		toast.success('Registro salvo com sucesso!')
-		toggle()
+		};
 
-	}
+		const updatedRegisters = [...registers, newRegister];
+		localStorage.setItem('@pontogo_registers', JSON.stringify(updatedRegisters));
+		setRegisters(updatedRegisters);
+
+		toast.success('Registro salvo com sucesso!');
+		toggle();
+	};
 
 	return (
 		<div>
-			{user?.role === 'colaborador' && (
+			{user.user.role.type === 'user' && (
 				<Button color='danger' onClick={toggle} className='btnModal'>
 					Registrar ponto
 				</Button>
@@ -54,17 +50,15 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 				<ModalHeader toggle={toggle}>Registrar novo ponto</ModalHeader>
 				<Image images={[{ src: clock, alt: imageAlt }]} />
 				<ModalBody>
-					<p className='time'>{timeValue}</p>
-					<p className='data'>{dateValue}</p>
-					{/* <p className='time'>{time}</p>
-					<p className='data'>{date}</p> */}
+					<p className='time'>{currentTime}</p>
+					<p className='data'>{currentDate}</p>
 				</ModalBody>
 				<ModalFooter>
 					<Buttonn
 						color='primary'
 						variant='modalbtn'
 						label='Bater ponto'
-						onClick={() => handleCheckIn(timeValue, dateValue)}
+						onClick={() => handleCheckIn(currentTime, currentDate)}
 					></Buttonn>{' '}
 					<Buttonn
 						color='secondary'
@@ -75,7 +69,7 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 				</ModalFooter>
 			</Modal>
 		</div>
-	)
+	);
 }
 
 export default ModalRegister;

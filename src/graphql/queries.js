@@ -1,7 +1,5 @@
 import { gql } from '@apollo/client';
 
-
-
 export const LIST_REGISTERED_TIMES = gql`
 	query registeredTimes($limit: Int, $start:Int) {
 		registeredTimes(limit: $limit, start: $start ) {
@@ -16,8 +14,8 @@ export const LIST_REGISTERED_TIMES = gql`
 `;
 
 export const LIST_REGISTERED_TIMES_CONNECTION = gql`
-query registeredTimesConnection($limit: Int, $start:Int) {
-  registeredTimesConnection(limit: $limit, start: $start ) {
+query registeredTimesConnection($limit: Int, $start:Int, $where: JSON) {
+  registeredTimesConnection(limit: $limit, start: $start, where: $where ) {
   values{
     id
     timeRegistered

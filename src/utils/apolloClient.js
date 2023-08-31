@@ -11,7 +11,7 @@ const authLink = setContext((_, { headers }) => {
 	const user = JSON.parse(localStorage.getItem('@pontogo'));
 	const token = user?.jwt;
 
-	console.log({ user, token });
+
 
 	return {
 		headers: {

@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
-import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import ReactPaginate from 'react-paginate';
 import { Link, useHistory } from 'react-router-dom';
@@ -15,55 +14,29 @@ import SideMenu from '../../molecules/SideMenu';
 import { useAuth } from '../../../hooks';
 
 const Dashboard = () => {
-	const [currentTime, setCurrentTime] = useState(moment().format('H:mm'));
-	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'));
-	// const [registersData, setRegistersData] = useState([]);
 	const { user } = useAuth();
-	console.log(user);
+	console.log(user.user);
 	const registers = JSON.parse(localStorage.getItem('@pontogo_registers'));
 	const history = useHistory();
 	const itemsPerPage = 9;
 	const [currentPage, setCurrentPage] = useState(0);
+	const variables = { limit: itemsPerPage, start: currentPage * itemsPerPage };
+
+	if (user.user.role.type !== "admin") {
+		variables.where = {
+			user: user.user.id
+		}
+	}
+
 	const { loading, error, data: registeredData } = useQuery(LIST_REGISTERED_TIMES_CONNECTION, {
-		variables: { limit: itemsPerPage, start: currentPage * itemsPerPage },
+		variables
 
 	});
-
-	console.log(registeredData)
 
 	const handleLogout = () => {
 		localStorage.removeItem('@pontogo');
 		history.push('/login');
 	};
-
-	// useEffect(() => {
-	// 	const startTimer = setInterval(() => {
-	// 		setCurrentTime(moment().format('H:mm'));
-	// 		setCurrentDate(moment().format('DD/MM/yyyy'));
-	// 	}, 1000);
-
-	// 	return () => clearInterval(startTimer);
-	// }, []);
-
-	// useEffect(() => {
-	// 	if (!registers) {
-	// 		return setRegistersData([]);
-	// 	}
-	// 	setRegistersData(
-	// 		user?.role === 'colaborador'
-	// 			? registers.filter((register) => register.userId === user.id).reverse()
-	// 			: registers.reverse()
-	// 	);
-	// }, [registers, user]);
-
-
-	useEffect(() => {
-
-	}, [currentPage])
-
-	console.log(currentPage, registeredData)
-
-	// const pageCount = Math.ceil(registersData.length / itemsPerPage);
 
 	const handlePageChange = ({ selected }) => {
 		setCurrentPage(selected);
@@ -79,7 +52,7 @@ const Dashboard = () => {
 		<div className='dashboard'>
 			<SideMenu />
 			<div className='dash-content'>
-				<ModalRegister user={user} timeValue={currentTime} dateValue={currentDate} />
+				<ModalRegister user={user} />
 				<div className='d-flex fields'>
 					<p className='fieldsCard'>Dashboard</p>
 					<p className='fieldsCard-data'>Data</p>
