@@ -10,7 +10,7 @@ Instale a dependência:
 ```bash
 npm install
 ```
-Inicie o servidor de desenvolvimento: npm start
+Inicie o servidor de desenvolvimento: ```npm start```
 Abra seu navegador e acesse: http://localhost:3000
 
 ### Tecnologias Utilizadas
