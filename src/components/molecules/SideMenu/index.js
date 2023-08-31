@@ -6,7 +6,6 @@ import logoDashboard from '../../../images/dashboard.png';
 import logo from '../../../images/logo_login.png';
 import './style.scss';
 
-import { useEffect } from 'react';
 
 const SideMenu = () => {
 	const history = useHistory();
@@ -16,20 +15,12 @@ const SideMenu = () => {
 		history.push('/login');
 	};
 
-	useEffect(() => {
-		const getStorageUser = JSON.parse(localStorage.getItem('@pontogo'))
-
-		if (!getStorageUser) {
-			return history.push('/login')
-		}
-		setUser(getStorageUser)
-	}, [history, setUser])
-
 	return (
 		<div className='side-menu'>
 			<div>
 				<a href="/">	<img width='150px' className='p-20' src={logo} alt='Brand logo' /></a>
-				{user?.role === 'colaborador' ? (
+
+				{user?.user?.role?.type === 'user' ? (
 					<div className='item-menu menu'>
 						<img width='24px' src={logoCalendar} alt='icon' />
 						<p>Registro</p>
