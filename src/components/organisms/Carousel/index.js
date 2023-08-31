@@ -152,10 +152,10 @@ function ExampleCards(props) {
 		<div className='card-container'>
 			<div className='controls' >
 				<Button className='control-cards' onClick={previous}>
-					<FaArrowLeft /> {/* Ícone de seta para a esquerda */}
+					<FaArrowLeft />
 				</Button>
 				<Button className='control-cards' onClick={next}>
-					<FaArrowRight /> {/* Ícone de seta para a direita */}
+					<FaArrowRight />
 				</Button>
 			</div>
 			{renderCards()}

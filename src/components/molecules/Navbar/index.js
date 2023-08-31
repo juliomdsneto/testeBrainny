@@ -15,7 +15,7 @@ const Navbar = ({ history }) => {
 			<div className="navbar-center d-flex">
 				<ul className="nav-links list-unstyled d-flex">
 					<li><a href="#hero">Inicio</a></li>
-					<li><a href="#plans">Carousel</a></li>
+					<li><a href="#plans">Planos</a></li>
 				</ul>
 				<Button label="Login" variant="primary" onClick={handleLoginButtonClick} />
 			</div>

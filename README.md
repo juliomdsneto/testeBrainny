@@ -4,7 +4,9 @@ O PontoGo é um sistema de controle de pontos desenvolvido como parte de um test
 
 ## Instalação e Execução
 Certifique-se de ter o Node.js e npm instalados em sua máquina.
+
 Instale a dependência: 
+
 ```bash
 npm install
 ```

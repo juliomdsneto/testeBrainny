@@ -4,7 +4,7 @@ import Image from '../../atoms/Image';
 import Text from '../../atoms/TextTags';
 import './style.scss';
 
-const ContentWithImage = ({ content, imageSrc, imageAlt }) => {
+const ContentWithImage = ({ content, imageSrc, imageAlt, href }) => {
 	return (
 		<div className="content-with-image container">
 			<div className="content gap-2">
@@ -21,8 +21,8 @@ const ContentWithImage = ({ content, imageSrc, imageAlt }) => {
 					</div>
 				))}
 				<div className='d-flex gap-4'>
-					<Button label="Assinar agora" variant="secondary" onClick={() => console.log('Botão clicado')} />
-					<Button label="Assinar agora" variant="tertiary" onClick={() => console.log('Botão clicado')} />
+					<Button label="Assinar agora" variant="secondary" href={href} />
+					<Button label="Ver planos" variant="tertiary" href={href} />
 				</div>
 			</div>
 			<div className="image">
