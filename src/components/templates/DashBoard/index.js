@@ -14,9 +14,8 @@ import SideMenu from '../../molecules/SideMenu';
 import { useAuth } from '../../../hooks';
 
 const Dashboard = () => {
-	const { user } = useAuth();
-	console.log(user.user);
-	const registers = JSON.parse(localStorage.getItem('@pontogo_registers'));
+	const { user, setUser } = useAuth();
+
 	const history = useHistory();
 	const itemsPerPage = 9;
 	const [currentPage, setCurrentPage] = useState(0);
@@ -30,7 +29,6 @@ const Dashboard = () => {
 
 	const { loading, error, data: registeredData } = useQuery(LIST_REGISTERED_TIMES_CONNECTION, {
 		variables
-
 	});
 
 	const handleLogout = () => {

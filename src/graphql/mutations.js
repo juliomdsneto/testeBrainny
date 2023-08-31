@@ -1,10 +1,5 @@
 import { gql } from '@apollo/client';
 
-// {
-//   "limit": 20,
-//   "start": 0
-// }
-
 export const LOGIN = gql`
   mutation login($input: UsersPermissionsLoginInput!) {
     login(input: $input) {
@@ -26,16 +21,13 @@ export const LOGIN = gql`
   }
 `;
 
-export const CheckIn = gql`
-mutation createRegisteredTime($input: createRegisteredTimeInput) {
+export const CHECKIN = gql`
+mutation createRegisteredTime($input: createRegisteredTimeInput){
   createRegisteredTime(input: $input){
     registeredTime{
       id
-      published_at
-      user{
-        id
-      }
+      timeRegistered
     }
-  }
+	}
 }
 `;

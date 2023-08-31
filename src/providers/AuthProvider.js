@@ -6,20 +6,14 @@ import { LOGIN } from '../graphql/mutations';
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-	const [user, setUser] = useState(null);
+	let userData = localStorage.getItem("@pontogo");
+	userData = userData ? JSON.parse(localStorage.getItem("@pontogo")) : null;
+
+
+	const [user, setUser] = useState(userData);
 	const navigate = useHistory();
 
 	const [login] = useMutation(LOGIN);
-	// const login = (email, password) => {
-	// 	return loginMutation({
-	// 		variables: {
-	// 			input: {
-	// 				identifier: email, password
-
-	// 			}
-	// 		}
-	// 	}).then(data => setUser(data))
-	// }
 
 	const handleLogout = () => {
 		setUser(null);

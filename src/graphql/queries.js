@@ -31,3 +31,18 @@ query registeredTimesConnection($limit: Int, $start:Int, $where: JSON) {
   }
 }
 `;
+
+
+export const ME = gql`
+query me{
+  me{
+    id
+    username
+      role{
+        id
+        name
+        type
+      }
+    }
+}
+`;

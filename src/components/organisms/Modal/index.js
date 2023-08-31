@@ -1,10 +1,13 @@
+import { useMutation } from "@apollo/client";
 import moment from 'moment';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { CHECKIN } from '../../../graphql/mutations';
 import clock from '../../../images/clock.png';
 import Buttonn from '../../atoms/Button'; // Import the customized button
 import Image from '../../atoms/Image';
+
 
 function ModalRegister({ user, args, imageAlt }) {
 	const [registers, setRegisters] = useState(
@@ -14,6 +17,11 @@ function ModalRegister({ user, args, imageAlt }) {
 	const [currentDate, setCurrentDate] = useState(moment().format('DD/MM/yyyy'));
 	const [modal, setModal] = useState(false);
 
+
+	const [checkin, { loading, error, data: registeredData }] = useMutation(CHECKIN);
+
+
+
 	const toggle = () => {
 		setModal(!modal);
 		setCurrentDate(moment().format('DD/MM/yyyy'));
@@ -21,22 +29,14 @@ function ModalRegister({ user, args, imageAlt }) {
 	};
 
 	const handleCheckIn = (hour, date) => {
-		if (!JSON.parse(localStorage.getItem('@pontogo_registers'))) {
-			localStorage.setItem('@pontogo_registers', JSON.stringify([]));
-		}
-		const newRegister = {
-			userId: user?.id,
-			name: user?.name,
-			date,
-			hour,
-		};
+		const now = new Date();
 
-		const updatedRegisters = [...registers, newRegister];
-		localStorage.setItem('@pontogo_registers', JSON.stringify(updatedRegisters));
-		setRegisters(updatedRegisters);
+		checkin({ variables: { input: { data: { user: user.user.id, timeRegistered: now.toISOString() } } } }).then(() => {
+			toast.success('Registro salvo com sucesso!');
+			toggle();
+		})
 
-		toast.success('Registro salvo com sucesso!');
-		toggle();
+
 	};
 
 	return (
