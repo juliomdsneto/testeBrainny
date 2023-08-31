@@ -5,10 +5,25 @@ import clock from '../../../images/clock.png';
 import Buttonn from '../../atoms/Button'; // Import the customized button
 import Image from '../../atoms/Image';
 
+
+
 function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
+	//continuar o modal	
+
+	const [time, setTime] = useState('');
+	const [date, setDate] = useState('');
+
+
 	const [modal, setModal] = useState(false);
 
-	const toggle = () => setModal(!modal);
+	const toggle = () => {
+		setModal(!modal);
+
+		//setar setTime e setDate
+	}
+
+	// createRegisteredTime graphQL
+	//dar reload no get
 
 	const handleCheckIn = (hour, date) => {
 		if (!JSON.parse(localStorage.getItem('@pontogo_registers'))) {
@@ -25,6 +40,7 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 		localStorage.setItem('@pontogo_registers', JSON.stringify(registers))
 		toast.success('Registro salvo com sucesso!')
 		toggle()
+
 	}
 
 	return (
@@ -40,6 +56,8 @@ function ModalRegister({ user, args, imageAlt, timeValue, dateValue }) {
 				<ModalBody>
 					<p className='time'>{timeValue}</p>
 					<p className='data'>{dateValue}</p>
+					{/* <p className='time'>{time}</p>
+					<p className='data'>{date}</p> */}
 				</ModalBody>
 				<ModalFooter>
 					<Buttonn

@@ -17,7 +17,7 @@ const SideMenu = () => {
 	};
 
 	useEffect(() => {
-		const getStorageUser = JSON.parse(localStorage.getItem('@pontogo'))
+		const getStorageUser = JSON.parse(localStorage.getItem('@pontogo'));
 
 		if (!getStorageUser) {
 			return history.push('/login')
